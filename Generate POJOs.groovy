@@ -238,14 +238,12 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
     out.println "\t@Resource"
     out.println "\tprivate ${entityName}Repository rep;"
     out.println ""
-    out.println ""
     if (config.baseMethods) {
         //基础方法 save
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public ${entityName} save(${entityName} obj) {"
         out.println "\t\t return rep.save(obj);"
         out.println "\t }"
-        out.println ""
         out.println ""
         //基础方法 saveList
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
@@ -254,13 +252,11 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         out.println "\t\t return rep.saveAll(list);"
         out.println "\t }"
         out.println ""
-        out.println ""
         //基础方法 getOne
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public ${entityName} getOne(${fields[0].type} id) {"
         out.println "\t\t return rep.getOne(id);"
         out.println "\t }"
-        out.println ""
         out.println ""
         //基础方法 findById
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
@@ -269,13 +265,11 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         out.println "\t\t return obj.isPresent()?obj.get():null;"
         out.println "\t }"
         out.println ""
-        out.println ""
         //基础方法 deleteById
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public void deleteById(${fields[0].type} id) {"
         out.println "\t\t rep.deleteById(id);"
         out.println "\t }"
-        out.println ""
         out.println ""
         //基础方法 deleteAll
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
@@ -284,13 +278,11 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         out.println "\t\t rep.deleteAll(list);"
         out.println "\t }"
         out.println ""
-        out.println ""
         //基础方法 delete
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public void delete(${entityName} obj) {"
         out.println "\t\t rep.delete(obj);"
         out.println "\t }"
-        out.println ""
         out.println ""
         //基础方法 existsById
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
@@ -298,20 +290,17 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         out.println "\t\t return rep.existsById(id);"
         out.println "\t }"
         out.println ""
-        out.println ""
         //基础方法 count
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public long count() {"
         out.println "\t\t return rep.count();"
         out.println "\t }"
         out.println ""
-        out.println ""
         //基础方法 findAll
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public List<${entityName}> findAll() {"
         out.println "\t\t return rep.findAll();"
         out.println "\t }"
-        out.println ""
         out.println ""
         //基础方法 findAll
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
@@ -320,13 +309,11 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         out.println "\t\t return list==null||list.size()<1?null:list;"
         out.println "\t }"
         out.println ""
-        out.println ""
         //基础方法 findAll
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public List<${entityName}> findAll(Sort sort) {"
         out.println "\t\t return rep.findAll(sort);"
         out.println "\t }"
-        out.println ""
         out.println ""
         //基础方法 findAllById
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
@@ -334,13 +321,11 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         out.println "\t\t return rep.findAllById(ids);"
         out.println "\t }"
         out.println ""
-        out.println ""
         //基础方法 findAll
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public List<${entityName}> findAll(Example<${entityName}> e) {"
         out.println "\t\t return rep.findAll(e);"
         out.println "\t }"
-        out.println ""
         out.println ""
         //基础方法 findAll
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
@@ -348,13 +333,11 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         out.println "\t\t return rep.findAll(e,sort);"
         out.println "\t }"
         out.println ""
-        out.println ""
         //基础方法 findAll
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public Page<${entityName}> findAll(Pageable page) {"
         out.println "\t\t return rep.findAll(page);"
         out.println "\t }"
-        out.println ""
         out.println ""
         //基础方法 findAll
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
@@ -362,13 +345,11 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         out.println "\t\t return rep.findAll(e,page);"
         out.println "\t }"
         out.println ""
-        out.println ""
         //基础方法 findAll
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public Page<${entityName}> findAll(${entityName} obj, Pageable page) {"
         out.println "\t\t return rep.findAll(Example.of(obj),page);"
         out.println "\t }"
-        out.println ""
         out.println ""
     }
     out.println "}"
