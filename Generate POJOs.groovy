@@ -262,7 +262,7 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public ${entityName} findById(${fields[0].type} id) {"
         out.println "\t\t Optional<${entityName}> obj = rep.findById(id);"
-        out.println "\t\t return obj.isPresent()?obj.get():null;"
+        out.println "\t\t return obj.orElse(null);"
         out.println "\t }"
         out.println ""
         //基础方法 deleteById
@@ -274,7 +274,7 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         //基础方法 deleteAll
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t @Transactional(rollbackFor = Exception.class)"
-        out.println "\t public void deleteAll(List list) {"
+        out.println "\t public void deleteAll(List<${entityName}> list) {"
         out.println "\t\t rep.deleteAll(list);"
         out.println "\t }"
         out.println ""
@@ -306,7 +306,7 @@ def genServiceImpl(out, table, entityName, fields, basePackage) {
         out.println "\t ${config.extendBaseService ? "@Override" : "" }"
         out.println "\t public List<${entityName}> findAll(${entityName} obj) {"
         out.println "\t\t List<${entityName}> list = rep.findAll(Example.of(obj));"
-        out.println "\t\t return list==null||list.size()<1?null:list;"
+        out.println "\t\t return list.size()<1?null:list;"
         out.println "\t }"
         out.println ""
         //基础方法 findAll
